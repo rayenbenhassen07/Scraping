@@ -26,230 +26,249 @@
           <form id="add_website" method="POST" action="{% url 'add_website' %}">
             {% csrf_token %}
 
-            <div class="input-field col s6">
-              <input
-                placeholder="wordpress"
-                id="store_type"
-                type="text"
-                name="store_type"
-                class="validate"
-              />
-              <label for="store_type">Store type</label>
+            <div class="input-field col s12">
+              <select id="store_type" name="store_type" class="browser-default">
+                <option value="" disabled selected>
+                  Choose your store type
+                </option>
+                <option value="wordpress">WordPress</option>
+                <option value="shopify">Shopify</option>
+                <option value="magento">Magento</option>
+                <!-- Add more options as needed -->
+              </select>
             </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="Parazone"
+                  id="store_title"
+                  type="text"
+                  name="store_title"
+                  class="validate"
+                />
+                <label for="store_title">Store Title</label>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  placeholder="URL"
+                  id="store_logo"
+                  type="text"
+                  name="store_logo"
+                  class="validate"
+                />
+                <label for="store_logo">Store Logo</label>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  placeholder="URL"
+                  id="store_url"
+                  type="text"
+                  name="store_url"
+                  class="validate"
+                />
+                <label for="store_url">Store URL</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="p,h1,h2,span,strong..."
+                  id="title_tag"
+                  type="text"
+                  name="title_tag"
+                  class="validate"
+                />
+                <label for="title_tag">Title Tag</label>
+              </div>
+              <div class="input-field col s12">
+                <select
+                  id="title_class"
+                  name="title_class"
+                  class="browser-default"
+                >
+                  <option value="class" selected>class</option>
+                  <option value="id">id</option>
+                </select>
+              </div>
 
-            <div class="input-field col s6">
-              <input
-                placeholder="Store Title"
-                id="store_title"
-                type="text"
-                name="store_title"
-                class="validate"
-              />
-              <label for="store_title">Store Title</label>
+              <div class="input-field col s6">
+                <input
+                  placeholder="<class =  '.....'  >"
+                  id="title_content"
+                  type="text"
+                  name="title_content"
+                  class="validate"
+                />
+                <label for="title_content">Title Content</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="p,h1,h2,span,strong..."
+                  id="price_tag"
+                  type="text"
+                  name="price_tag"
+                  class="validate"
+                />
+                <label for="price_tag">Price Tag</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select
+                  id="price_class"
+                  name="price_class"
+                  class="browser-default"
+                >
+                  <option value="class" selected>class</option>
+                  <option value="id">id</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  placeholder="<class =  '.....'  >"
+                  id="price_content"
+                  type="text"
+                  name="price_content"
+                  class="validate"
+                />
+                <label for="price_content">Price Content</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="p,h1,h2,span,strong..."
+                  id="availability_tag"
+                  type="text"
+                  name="availability_tag"
+                  class="validate"
+                />
+                <label for="availability_tag">Availability Tag</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select
+                  id="availability_class"
+                  name="availability_class"
+                  class="browser-default"
+                >
+                  <option value="class" selected>class</option>
+                  <option value="id">id</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  placeholder="<class =  '.....'  >"
+                  id="availability_content"
+                  type="text"
+                  name="availability_content"
+                  class="validate"
+                />
+                <label for="availability_content">Availability Content</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="p,h1,h2,span,strong..."
+                  id="sku_tag"
+                  type="text"
+                  name="sku_tag"
+                  class="validate"
+                />
+                <label for="sku_tag">SKU Tag</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select id="sku_class" name="sku_class" class="browser-default">
+                  <option value="class" selected>class</option>
+                  <option value="id">id</option>
+                </select>
+              </div>
+
+              <div class="input-field col s6">
+                <input
+                  placeholder="<class =  '.....'  >"
+                  id="sku_content"
+                  type="text"
+                  name="sku_content"
+                  class="validate"
+                />
+                <label for="sku_content">SKU Content</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="p,h1,h2,span,strong..."
+                  id="ratings_tag"
+                  type="text"
+                  name="ratings_tag"
+                  class="validate"
+                />
+                <label for="ratings_tag">Ratings Tag</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select
+                  id="ratings_class"
+                  name="ratings_class"
+                  class="browser-default"
+                >
+                  <option value="class" selected>class</option>
+                  <option value="id">id</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  placeholder="<class =  '.....'  >"
+                  id="ratings_content"
+                  type="text"
+                  name="ratings_content"
+                  class="validate"
+                />
+                <label for="ratings_content">Ratings Content</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  placeholder="p,h1,h2,span,strong..."
+                  id="nbr_ratings_tag"
+                  type="text"
+                  name="nbr_ratings_tag"
+                  class="validate"
+                />
+                <label for="nbr_ratings_tag">Number of Ratings Tag</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select
+                  id="nbr_ratings_class"
+                  name="nbr_ratings_class"
+                  class="browser-default"
+                >
+                  <option value="class" selected>class</option>
+                  <option value="id">id</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input
+                  placeholder="<class =  '.....'  >"
+                  id="nbr_ratings_content"
+                  type="text"
+                  name="nbr_ratings_content"
+                  class="validate"
+                />
+                <label for="nbr_ratings_content"
+                  >Number of Ratings Content</label
+                >
+              </div>
             </div>
             <div class="input-field col s6">
               <input
-                placeholder="Store Logo URL"
-                id="store_logo"
-                type="text"
-                name="store_logo"
-                class="validate"
-              />
-              <label for="store_logo">Store Logo</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Store URL"
-                id="store_url"
-                type="text"
-                name="store_url"
-                class="validate"
-              />
-              <label for="store_url">Store URL</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Title Tag"
-                id="title_tag"
-                type="text"
-                name="title_tag"
-                class="validate"
-              />
-              <label for="title_tag">Title Tag</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Title Class"
-                id="title_class"
-                type="text"
-                name="title_class"
-                class="validate"
-              />
-              <label for="title_class">Title Class</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Title Content"
-                id="title_content"
-                type="text"
-                name="title_content"
-                class="validate"
-              />
-              <label for="title_content">Title Content</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Price Tag"
-                id="price_tag"
-                type="text"
-                name="price_tag"
-                class="validate"
-              />
-              <label for="price_tag">Price Tag</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Price Class"
-                id="price_class"
-                type="text"
-                name="price_class"
-                class="validate"
-              />
-              <label for="price_class">Price Class</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Price Content"
-                id="price_content"
-                type="text"
-                name="price_content"
-                class="validate"
-              />
-              <label for="price_content">Price Content</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Availability Tag"
-                id="availability_tag"
-                type="text"
-                name="availability_tag"
-                class="validate"
-              />
-              <label for="availability_tag">Availability Tag</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Availability Class"
-                id="availability_class"
-                type="text"
-                name="availability_class"
-                class="validate"
-              />
-              <label for="availability_class">Availability Class</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Availability Content"
-                id="availability_content"
-                type="text"
-                name="availability_content"
-                class="validate"
-              />
-              <label for="availability_content">Availability Content</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="SKU Tag"
-                id="sku_tag"
-                type="text"
-                name="sku_tag"
-                class="validate"
-              />
-              <label for="sku_tag">SKU Tag</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="SKU Class"
-                id="sku_class"
-                type="text"
-                name="sku_class"
-                class="validate"
-              />
-              <label for="sku_class">SKU Class</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="SKU Content"
-                id="sku_content"
-                type="text"
-                name="sku_content"
-                class="validate"
-              />
-              <label for="sku_content">SKU Content</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Ratings Tag"
-                id="ratings_tag"
-                type="text"
-                name="ratings_tag"
-                class="validate"
-              />
-              <label for="ratings_tag">Ratings Tag</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Ratings Class"
-                id="ratings_class"
-                type="text"
-                name="ratings_class"
-                class="validate"
-              />
-              <label for="ratings_class">Ratings Class</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Ratings Content"
-                id="ratings_content"
-                type="text"
-                name="ratings_content"
-                class="validate"
-              />
-              <label for="ratings_content">Ratings Content</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Number of Ratings Tag"
-                id="nbr_ratings_tag"
-                type="text"
-                name="nbr_ratings_tag"
-                class="validate"
-              />
-              <label for="nbr_ratings_tag">Number of Ratings Tag</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Number of Ratings Class"
-                id="nbr_ratings_class"
-                type="text"
-                name="nbr_ratings_class"
-                class="validate"
-              />
-              <label for="nbr_ratings_class">Number of Ratings Class</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Number of Ratings Content"
-                id="nbr_ratings_content"
-                type="text"
-                name="nbr_ratings_content"
-                class="validate"
-              />
-              <label for="nbr_ratings_content">Number of Ratings Content</label>
-            </div>
-            <div class="input-field col s6">
-              <input
-                placeholder="Delivery Price"
+                placeholder="7,3"
                 id="delivery_price"
                 type="text"
                 name="delivry_price"
@@ -259,17 +278,17 @@
             </div>
             <div class="input-field col s6">
               <input
-                placeholder="Offer"
+                placeholder="10% off"
                 id="offer"
                 type="text"
                 name="offre"
                 class="validate"
               />
-              <label for="offer">Offer</label>
+              <label for="offer">Offre</label>
             </div>
             <div class="input-field col s6">
               <input
-                placeholder="Sitemap URL"
+                placeholder="Sitemap1, Sitemap2 , Sitemap3 ..."
                 id="sitemap"
                 type="text"
                 name="sitemap"
@@ -283,7 +302,6 @@
           </form>
         </div>
       </div>
-      <div class="modal-footer"></div>
     </div>
 
     <!-- Modal edit -->
@@ -306,6 +324,7 @@
               name="store_type"
               class="validate"
               value="{{ web.store_type }}"
+              disabled
             />
             <label for="store_type{{ web.id }}">Store type</label>
           </div>
@@ -588,7 +607,6 @@
           </div>
         </form>
       </div>
-      <div class="modal-footer"></div>
     </div>
     {% endfor %}
 
@@ -641,6 +659,18 @@
       $(".trigger-modal").modal();
     }); // end of document ready
   })(jQuery); // end of jQuery name space
+
+  // select
+  $(document).ready(function () {
+    $("select").formSelect();
+    // Old way
+    // $('select').material_select();
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll("select");
+    var instances = M.FormSelect.init(elems);
+  });
 </script>
 
 {% else %}

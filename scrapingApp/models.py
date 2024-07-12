@@ -39,7 +39,7 @@ class websites(models.Model):
     nbr_ratings_class = models.CharField(max_length=200)
     nbr_ratings_content = models.CharField(max_length=200)
 
-    delivry_price = models.FloatField()
+    delivry_price = models.CharField(max_length=200)
     offre = models.CharField(max_length=200)
     sitemap = models.TextField(default='')
 

@@ -156,7 +156,9 @@ def edit_website(request, id):
 
 def run_website(request, id):
     website = get_object_or_404(websites, id=id)
+    
     try:
+        
         
         result = subprocess.run(
                     [
@@ -190,6 +192,7 @@ def run_website(request, id):
                     capture_output=True,
                     text=True,
                 )
+        print("ssssssssssssssssssss")
                 # Check if the script ran successfully
         if result.returncode == 0:
             return HttpResponse("Script executed successfully")
@@ -202,5 +205,4 @@ def run_website(request, id):
 
 
 
-    print(website.store_title)
-    return redirect('/')
+ 

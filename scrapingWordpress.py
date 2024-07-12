@@ -83,9 +83,10 @@ def extract_product_details(
                 .strip()
                 .lower()
             )
-            availability = (
-                "Disponible" if "in stock" in availability_text else "Indisponible"
-            )
+            variable_list = ["in stock", "available", "ready", "available now", 
+                     "en stock", "disponible", "prêt", "disponible maintenant"]
+            
+            availability = "Disponible" if any(word in availability_text for word in variable_list) else "Indisponible"
         else:
             availability = "Indisponible"
 
@@ -112,7 +113,7 @@ def extract_product_details(
             int(nbr_ratings_element.get_text().strip()) if nbr_ratings_element else 0
         )
 
-        delivery_pricee = int(delivery_price)  # Ajout de la colonne delivery_price
+        delivery_pricee = float(delivery_price)  # Ajout de la colonne delivery_price
 
         return {
             "title": title,
@@ -179,7 +180,7 @@ def extract_urls_from_sitemap(sitemap_url):
             ".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc"
         )
 
-        for loc_element in loc_elements[:10]:  # Limiting to first 5 products
+        for loc_element in loc_elements[:5]:  # Limiting to first 5 products
             url = loc_element.text
             product_data = extract_product_details(
                 url,
