@@ -156,10 +156,7 @@ def edit_website(request, id):
 
 def run_website(request, id):
     website = get_object_or_404(websites, id=id)
-    
     try:
-        
-        
         result = subprocess.run(
                     [
                         "python3",
@@ -205,4 +202,48 @@ def run_website(request, id):
 
 
 
- 
+def preview_website(request, id):
+    website = get_object_or_404(websites, id=id)
+    limit = "5"
+    try:
+        result = subprocess.run(
+                    [
+                        "python3",
+                        "scrapingWordpress.py",
+                        website.store_title,
+                        website.store_logo,
+                        website.store_url,
+                        website.title_tag,
+                        website.title_class,
+                        website.title_content,
+                        website.price_tag,
+                        website.price_class,
+                        website.price_content,
+                        website.availability_tag,
+                        website.availability_class,
+                        website.availability_content,
+                        website.sku_tag,
+                        website.sku_class,
+                        website.sku_content,
+                        website.ratings_tag,
+                        website.ratings_class,
+                        website.ratings_content,
+                        website.nbr_ratings_tag,
+                        website.nbr_ratings_class,
+                        website.nbr_ratings_content,
+                        website.delivry_price,
+                        website.offre,
+                        website.sitemap,
+                        limit,
+                    ],
+                    capture_output=True,
+                    text=True,
+                )
+                # Check if the script ran successfully
+        if result.returncode == 0:
+            return HttpResponse("Script executed successfully")
+        else:
+            return HttpResponse(f"Script execution failed: {result.stderr}")
+        
+    except Exception as e:
+        return HttpResponse(f"An error occurred: {e}")

@@ -13,6 +13,7 @@ urlpatterns = [
     path('edit_website/<int:id>/', views.edit_website, name='edit_website'),
     
     path('run_website/<int:id>/', views.run_website, name='run_website'),
+    path('preview_website/<int:id>/', views.preview_website, name='preview_website'),
     
 
 ]

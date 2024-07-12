@@ -13,7 +13,6 @@ class websites(models.Model):
     store_logo = models.CharField(max_length=200)
     store_url = models.CharField(max_length=200)
 
-
     title_tag = models.CharField(max_length=200)
     title_class = models.CharField(max_length=200)
     title_content = models.CharField(max_length=200)

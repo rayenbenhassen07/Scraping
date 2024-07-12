@@ -163,12 +163,13 @@ nbr_rating_content = sys.argv[21] if len(sys.argv) > 21 else None
 delivery_price = sys.argv[22] if len(sys.argv) > 22 else None
 offre = sys.argv[23] if len(sys.argv) > 23 else None
 sitemap = sys.argv[24] if len(sys.argv) > 24 else None
+limit = sys.argv[25] if len(sys.argv) > 25 else None
 
 # List of sitemap URLs
 
 
 # Function to extract URLs from sitemap and scrape product details
-def extract_urls_from_sitemap(sitemap_url):
+def extract_urls_from_sitemap(sitemap_url, limit):
     products = []
 
     try:
@@ -179,8 +180,10 @@ def extract_urls_from_sitemap(sitemap_url):
         loc_elements = tree.findall(
             ".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc"
         )
+        if limit != None:
+            loc_elements = loc_elements[:int(limit)]
 
-        for loc_element in loc_elements[:5]:  # Limiting to first 5 products
+        for loc_element in loc_elements[:2]:  # Limiting products
             url = loc_element.text
             product_data = extract_product_details(
                 url,
@@ -223,9 +226,14 @@ def extract_urls_from_sitemap(sitemap_url):
 sitemap_urls_string = str(sitemap)
 all_products = []
 sitemap_urls = [url.strip() for url in sitemap_urls_string.split(",")]
-for sitemap_url in sitemap_urls:
-    products = extract_urls_from_sitemap(sitemap_url)
+
+if limit != None:
+    products = extract_urls_from_sitemap(sitemap_urls[0],limit)
     all_products.extend(products)
+else:
+    for sitemap_url in sitemap_urls:
+        products = extract_urls_from_sitemap(sitemap_url,limit)
+        all_products.extend(products)
 
 # Exporting data to a JSON file with specific order
 formatted_products = []
