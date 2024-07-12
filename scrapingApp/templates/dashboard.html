@@ -1,0 +1,652 @@
+{%extends "base.html"%} {%block content%} {% if user.is_authenticated %}
+<main>
+  <section>
+    <h2>Overview</h2>
+    <p>This is your dashboard where you can manage your application.</p>
+  </section>
+  <section>
+    <h2>Websites</h2>
+    <!-- Modal Trigger -->
+    <a class="waves-effect green waves-light btn modal-trigger" href="#modal1">
+      <i class="large material-icons white-text center">add</i>
+    </a>
+
+    <!-- Modal add  -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="close">
+          <a class="modal-close waves-effect red waves-ligh btn"
+            ><i class="large material-icons white-text center">close</i></a
+          >
+        </div>
+
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+        <div>
+          <form id="add_website" method="POST" action="{% url 'add_website' %}">
+            {% csrf_token %}
+
+            <div class="input-field col s6">
+              <input
+                placeholder="wordpress"
+                id="store_type"
+                type="text"
+                name="store_type"
+                class="validate"
+              />
+              <label for="store_type">Store type</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input
+                placeholder="Store Title"
+                id="store_title"
+                type="text"
+                name="store_title"
+                class="validate"
+              />
+              <label for="store_title">Store Title</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Store Logo URL"
+                id="store_logo"
+                type="text"
+                name="store_logo"
+                class="validate"
+              />
+              <label for="store_logo">Store Logo</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Store URL"
+                id="store_url"
+                type="text"
+                name="store_url"
+                class="validate"
+              />
+              <label for="store_url">Store URL</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Title Tag"
+                id="title_tag"
+                type="text"
+                name="title_tag"
+                class="validate"
+              />
+              <label for="title_tag">Title Tag</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Title Class"
+                id="title_class"
+                type="text"
+                name="title_class"
+                class="validate"
+              />
+              <label for="title_class">Title Class</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Title Content"
+                id="title_content"
+                type="text"
+                name="title_content"
+                class="validate"
+              />
+              <label for="title_content">Title Content</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Price Tag"
+                id="price_tag"
+                type="text"
+                name="price_tag"
+                class="validate"
+              />
+              <label for="price_tag">Price Tag</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Price Class"
+                id="price_class"
+                type="text"
+                name="price_class"
+                class="validate"
+              />
+              <label for="price_class">Price Class</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Price Content"
+                id="price_content"
+                type="text"
+                name="price_content"
+                class="validate"
+              />
+              <label for="price_content">Price Content</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Availability Tag"
+                id="availability_tag"
+                type="text"
+                name="availability_tag"
+                class="validate"
+              />
+              <label for="availability_tag">Availability Tag</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Availability Class"
+                id="availability_class"
+                type="text"
+                name="availability_class"
+                class="validate"
+              />
+              <label for="availability_class">Availability Class</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Availability Content"
+                id="availability_content"
+                type="text"
+                name="availability_content"
+                class="validate"
+              />
+              <label for="availability_content">Availability Content</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="SKU Tag"
+                id="sku_tag"
+                type="text"
+                name="sku_tag"
+                class="validate"
+              />
+              <label for="sku_tag">SKU Tag</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="SKU Class"
+                id="sku_class"
+                type="text"
+                name="sku_class"
+                class="validate"
+              />
+              <label for="sku_class">SKU Class</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="SKU Content"
+                id="sku_content"
+                type="text"
+                name="sku_content"
+                class="validate"
+              />
+              <label for="sku_content">SKU Content</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Ratings Tag"
+                id="ratings_tag"
+                type="text"
+                name="ratings_tag"
+                class="validate"
+              />
+              <label for="ratings_tag">Ratings Tag</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Ratings Class"
+                id="ratings_class"
+                type="text"
+                name="ratings_class"
+                class="validate"
+              />
+              <label for="ratings_class">Ratings Class</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Ratings Content"
+                id="ratings_content"
+                type="text"
+                name="ratings_content"
+                class="validate"
+              />
+              <label for="ratings_content">Ratings Content</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Number of Ratings Tag"
+                id="nbr_ratings_tag"
+                type="text"
+                name="nbr_ratings_tag"
+                class="validate"
+              />
+              <label for="nbr_ratings_tag">Number of Ratings Tag</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Number of Ratings Class"
+                id="nbr_ratings_class"
+                type="text"
+                name="nbr_ratings_class"
+                class="validate"
+              />
+              <label for="nbr_ratings_class">Number of Ratings Class</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Number of Ratings Content"
+                id="nbr_ratings_content"
+                type="text"
+                name="nbr_ratings_content"
+                class="validate"
+              />
+              <label for="nbr_ratings_content">Number of Ratings Content</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Delivery Price"
+                id="delivery_price"
+                type="text"
+                name="delivry_price"
+                class="validate"
+              />
+              <label for="delivery_price">Delivery Price</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Offer"
+                id="offer"
+                type="text"
+                name="offre"
+                class="validate"
+              />
+              <label for="offer">Offer</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                placeholder="Sitemap URL"
+                id="sitemap"
+                type="text"
+                name="sitemap"
+                class="validate"
+              />
+              <label for="sitemap">Sitemap URL</label>
+            </div>
+            <div class="btn-modal">
+              <button class="btn" type="submit">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+
+    <!-- Modal edit -->
+    {% for web in website %}
+    <div id="modal-{{web.id}}" class="modal">
+      <div class="modal-content">
+        <div class="close">
+          <a class="modal-close waves-effect red waves-ligh btn"
+            ><i class="large material-icons white-text center">close</i></a
+          >
+        </div>
+        <h4>Edit Website</h4>
+        <form method="POST" action="{% url 'edit_website' web.id %}">
+          {% csrf_token %}
+
+          <div class="input-field col s6">
+            <input
+              id="store_type{{ web.id }}"
+              type="text"
+              name="store_type"
+              class="validate"
+              value="{{ web.store_type }}"
+            />
+            <label for="store_type{{ web.id }}">Store type</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="store_title{{ web.id }}"
+              type="text"
+              name="store_title"
+              class="validate"
+              value="{{ web.store_title }}"
+            />
+            <label for="store_title{{ web.id }}">Store Title</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="store_logo{{ web.id }}"
+              type="text"
+              name="store_logo"
+              class="validate"
+              value="{{ web.store_logo }}"
+            />
+            <label for="store_logo{{ web.id }}">Store Logo URL</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="store_url{{ web.id }}"
+              type="text"
+              name="store_url"
+              class="validate"
+              value="{{ web.store_url }}"
+            />
+            <label for="store_url{{ web.id }}">Store URL</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="title_tag{{ web.id }}"
+              type="text"
+              name="title_tag"
+              class="validate"
+              value="{{ web.title_tag }}"
+            />
+            <label for="title_tag{{ web.id }}">Title Tag</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="title_class{{ web.id }}"
+              type="text"
+              name="title_class"
+              class="validate"
+              value="{{ web.title_class }}"
+            />
+            <label for="title_class{{ web.id }}">Title Class</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="title_content{{ web.id }}"
+              type="text"
+              name="title_content"
+              class="validate"
+              value="{{ web.title_content }}"
+            />
+            <label for="title_content{{ web.id }}">Title Content</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="price_tag{{ web.id }}"
+              type="text"
+              name="price_tag"
+              class="validate"
+              value="{{ web.price_tag }}"
+            />
+            <label for="price_tag{{ web.id }}">Price Tag</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="price_class{{ web.id }}"
+              type="text"
+              name="price_class"
+              class="validate"
+              value="{{ web.price_class }}"
+            />
+            <label for="price_class{{ web.id }}">Price Class</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="price_content{{ web.id }}"
+              type="text"
+              name="price_content"
+              class="validate"
+              value="{{ web.price_content }}"
+            />
+            <label for="price_content{{ web.id }}">Price Content</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="availability_tag{{ web.id }}"
+              type="text"
+              name="availability_tag"
+              class="validate"
+              value="{{ web.availability_tag }}"
+            />
+            <label for="availability_tag{{ web.id }}">Availability Tag</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="availability_class{{ web.id }}"
+              type="text"
+              name="availability_class"
+              class="validate"
+              value="{{ web.availability_class }}"
+            />
+            <label for="availability_class{{ web.id }}"
+              >Availability Class</label
+            >
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="availability_content{{ web.id }}"
+              type="text"
+              name="availability_content"
+              class="validate"
+              value="{{ web.availability_content }}"
+            />
+            <label for="availability_content{{ web.id }}"
+              >Availability Content</label
+            >
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="sku_tag{{ web.id }}"
+              type="text"
+              name="sku_tag"
+              class="validate"
+              value="{{ web.sku_tag }}"
+            />
+            <label for="sku_tag{{ web.id }}">SKU Tag</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="sku_class{{ web.id }}"
+              type="text"
+              name="sku_class"
+              class="validate"
+              value="{{ web.sku_class }}"
+            />
+            <label for="sku_class{{ web.id }}">SKU Class</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="sku_content{{ web.id }}"
+              type="text"
+              name="sku_content"
+              class="validate"
+              value="{{ web.sku_content }}"
+            />
+            <label for="sku_content{{ web.id }}">SKU Content</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="ratings_tag{{ web.id }}"
+              type="text"
+              name="ratings_tag"
+              class="validate"
+              value="{{ web.ratings_tag }}"
+            />
+            <label for="ratings_tag{{ web.id }}">Ratings Tag</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="ratings_class{{ web.id }}"
+              type="text"
+              name="ratings_class"
+              class="validate"
+              value="{{ web.ratings_class }}"
+            />
+            <label for="ratings_class{{ web.id }}">Ratings Class</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="ratings_content{{ web.id }}"
+              type="text"
+              name="ratings_content"
+              class="validate"
+              value="{{ web.ratings_content }}"
+            />
+            <label for="ratings_content{{ web.id }}">Ratings Content</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="nbr_ratings_tag{{ web.id }}"
+              type="text"
+              name="nbr_ratings_tag"
+              class="validate"
+              value="{{ web.nbr_ratings_tag }}"
+            />
+            <label for="nbr_ratings_tag{{ web.id }}"
+              >Number of Ratings Tag</label
+            >
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="nbr_ratings_class{{ web.id }}"
+              type="text"
+              name="nbr_ratings_class"
+              class="validate"
+              value="{{ web.nbr_ratings_class }}"
+            />
+            <label for="nbr_ratings_class{{ web.id }}"
+              >Number of Ratings Class</label
+            >
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="nbr_ratings_content{{ web.id }}"
+              type="text"
+              name="nbr_ratings_content"
+              class="validate"
+              value="{{ web.nbr_ratings_content }}"
+            />
+            <label for="nbr_ratings_content{{ web.id }}"
+              >Number of Ratings Content</label
+            >
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="delivery_price{{ web.id }}"
+              type="text"
+              name="delivry_price"
+              class="validate"
+              value="{{ web.delivry_price }}"
+            />
+            <label for="delivery_price{{ web.id }}">Delivery Price</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="offer{{ web.id }}"
+              type="text"
+              name="offre"
+              class="validate"
+              value="{{ web.offre }}"
+            />
+            <label for="offer{{ web.id }}">Offer</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+              id="sitemap{{ web.id }}"
+              type="text"
+              name="sitemap"
+              class="validate"
+              value="{{ web.sitemap }}"
+            />
+            <label for="sitemap{{ web.id }}">Sitemap URL</label>
+          </div>
+          <div class="btn-modal">
+            <button type="submit" class="btn">Save Changes</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+    {% endfor %}
+
+    <ul>
+      {% for web in website %}
+
+      <li class="flex justify-between">
+        <div>
+          <img src="{{web.store_logo}}" alt="Website Image" width="100" />
+        </div>
+        <div>{{web.store_title}}</div>
+        <div>
+          <a
+            class="waves-effect green waves-ligh btn"
+            href="{% url 'run_website' web.id %}"
+            ><i class="large material-icons white-text center"
+              >directions_run</i
+            ></a
+          >
+          <a
+            class="modal-trigger waves-effect black waves-ligh btn"
+            href="#modal-{{web.id}}"
+            ><i class="large material-icons white-text center"
+              >open_in_new</i
+            ></a
+          >
+
+          <a
+            href="{% url 'delete_website' web.id %}"
+            class="waves-effect red waves-ligh btn"
+            ><i class="large material-icons white-text center"
+              >delete_sweep</i
+            ></a
+          >
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  (function ($) {
+    $(function () {
+      //initialize all modals
+      $(".modal").modal();
+
+      //or by click on trigger
+      $(".trigger-modal").modal();
+    }); // end of document ready
+  })(jQuery); // end of jQuery name space
+</script>
+
+{% else %}
+
+<script>
+  window.location.href = "/login";
+</script>
+
+{% endif %} {%endblock%}
